@@ -1,0 +1,43 @@
+//CHAPTER-6 REACT PROPS
+
+/* A. REACT PROPS
+  1. Props stands for properties. They are used for passing data from one component to the other one.
+  
+  2. React Props are like Formal Arguments when they are passed as Argument in JavaScript and 
+     React Prop's Value is passed when the function/component is called in the Parent Function. */
+
+
+
+
+/* B. WHAT IS PROP DRILLING?
+  1. Sometimes while developing React applications, there is a need to pass data from a component that
+     is higher in the hierarchy to a component that is deeply nested.
+     
+  2. To pass data between such components, we pass props from a source component and keep passing the 
+     prop to the next component in the hierarchy till we reach the deeply nested component, where it 
+     has to be atually used.
+     
+  3. The main disadvantage of prop drilling in React is that it can make the code harder to manage and
+     maintain, especially in large applications with deeply nested components.
+     
+  4. Intermediate components become cluttered with props they don't use directly, making the code harder 
+     to read and understand. */
+
+
+
+
+/* C.HOW TO PASS DATA BETWEEN COMPONENTS
+   1. Parent Component to Child Component- With the help of props, we can send data from a parent to a
+      child component.
+      
+   2. Child Component to Parent Component- Create a callback in the parent component which takes in the
+      data needed as a parameter. Pass this callback as a prop to the child component. Send data from 
+      the child component using the callback. Refer-Parent.jsx and Child.jsx
+      
+   3. Sibling Components- Context API and Redux are the standard ways to share data between siblings.
+      Some more procedures are Lifting State Up, Custom Event Bus, React Router.
+      - Lifting State Up- Create the shared state to the nearest common ancestor component. Pass the state
+        and setter functions as props to the children. */
+  
+
+

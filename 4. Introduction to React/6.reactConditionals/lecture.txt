@@ -1,0 +1,5 @@
+//CHAPTER-6 REACT CONDITONAL RENDERING
+
+/* A. CONDITIONAL RENDERING
+  1. In React, we can conditionally render components. This can be done in three ways.
+     Refer: Way1.jsx, Way2.jsx. Way3.jsx */

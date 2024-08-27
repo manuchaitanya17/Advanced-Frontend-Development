@@ -1,0 +1,62 @@
+//CHAPTER-4 REACT COMPONENTS
+
+/* A. INTRODUCTION TO COMPONENTS
+  1. Components are independent and reusable bits of code. They serve the same purpose as JavaScript
+     functions.
+     
+  2. Components come in two types, Class components and Function components, in this tutorial we will 
+     concentrate on Function components. Refer Home.jsx.
+     
+  3. Function returns a plain JavaScript object that represents a React Element. This object gets
+     finally rendered as HTML Element in Actual DOM Tree. It has three properties:
+     - type (the element type, e.g., 'div' or 'h1')
+     - props (the element's properties)
+     - children(the child elements or text content)
+     
+  4. To use this component in your application, we use similar syntax as normal HTML: <Car/> or Car().
+  
+  5. Note that the fileName/componentName must start with an uppercase character.
+  
+  6. We can use Components inside Compenents. Refer App.jsx 
+  
+  7. We need not create a new js/jsx file to create a component. We can write that function above 
+     index.jsx. Refer: index.jsx */
+
+
+
+
+/* B. React.createElement() 
+  1. The React.createElement function returns a plain JavaScript object that represents a React Element, 
+     just like any function.
+     
+  2. This object has properties like type (the element type, e.g., 'div' or 'h1'), props (the element's
+     properties), and children (the child elements or text content). Refer: index.jsx */
+
+
+
+
+/* C. CONTROLLED VS UNCONTROLLED COMPONENT(DO IT AFTER REACT STATE) 
+   1. Controlled and uncontrolled components are just different approaches to handling input from elements 
+      in react. 
+      
+   2. In a controlled component, the value of the input element is controlled by React. In an uncontrolled 
+      component, the value of the input element is handled by the DOM itself. 
+      
+   3. We store the state of the input element inside the code in value, and by using event-based callbacks,
+      any changes made to the input element will be reflected in the code as well. Input elements inside 
+      uncontrolled components work just like normal HTML input form elements. This value can retrived by 
+      using useRef Hook which access the Actual DOM direclty. */
+
+
+
+
+/* D. REACT LIST AND KEYS
+   1. A key is a special string attribute that needs to be included when using lists of elements.
+
+   2. React uses the concept of keys to efficiently update and re-render lists of elements. When we create a
+      list of elements in React, each element should have a unique "key" prop. This key helps React identify 
+      which items have changed, been added, or been removed in a list.
+
+   3. React uses the key to create a relationship between the component and the DOM element. */
+
+

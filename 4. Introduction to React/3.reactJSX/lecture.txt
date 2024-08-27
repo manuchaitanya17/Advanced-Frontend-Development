@@ -1,0 +1,47 @@
+//CHAPTER-3 REACT JSX
+
+/* A. WHAT IS JSX?
+  1. JSX stands for JavaScript XML. JSX allows us to write HTML in JavaScript returning React Element. 
+  2. Using JSX we place HTML Elements in the DOM without any createElement() and/or appendChild() methods.
+  3. We are not required to use JSX, but JSX makes it easier to write React applications. Without using
+     JSX, we would have to create an element by the following process: Refer index.jsx */
+
+
+
+/* B. JSX EXPRESSION
+  1. With JSX you can write JS Expressions inside curly braces {}. 
+  2. The expression can be a JS Variable, or Property, or any other valid JavaScript Expression. JSX will 
+     execute the expression and return the result. Refer App.jsx  */
+
+
+
+/* C. SYNTAX AND MULTIPLE LINES INSERTION 
+  1. To write JSX in React use () to write multiple lines. To write HTML MULTIPLE ELEMENTS put the HTML
+     inside <>HERE</>. Refer: App.jsx
+  2. JSX follows XML rules, and therefore HTML elements must be properly closed. */
+
+
+
+/* D. HTML ATTRIBUTES NAME NOT SUPPORTED BY JSX
+  1. class → className
+  2. for → htmlFor
+  3. style → style object
+  4. tabindex → tabIndex
+  5. autofocus → autoFocus
+  6. allowfullscreen → allowFullScreen
+  7. frameborder → frameBorder
+  8. maxlength → maxLength
+  9. readonly → readOnly
+  10. contenteditable → contentEditable */
+
+
+
+/* E. CONDITIONAL STATEMENT NOT VALID 
+  1. React supports if statements, but not inside JSX.
+  2. To be able to use conditional statements in JSX, you should put the if statements outside of the JSX,
+     or you could use a ternary expression instead. */
+
+
+
+
+

@@ -1,0 +1,72 @@
+//CHAPTER-2 REACT VIRTUAL DOM
+
+/* A. ROOT NODE- CONTAINER NODE
+   1. The root node is the HTML Element where all the React Components are rendered. 
+   
+   2. It does NOT have to be a <div> element and it does NOT have to be the id='root', but this is the standard
+      convention. */
+
+
+
+/* B. ReactDOM.createRoot()
+  1. The ReactDOM.createRoot() method takes a single argument: containerNode/rootNode. 
+     
+  2. The createRoot(containerNode) method returns a React Element which is the Root of Virtual DOM which is
+     created. 
+
+  3. This React Root Object has the following methods:
+    - render(reactElement): This method is used to render a React Element (component) into the associated 
+      containerNode. It takes a single argument, which is the React Element (component) we want to render.
+
+    - unmount(): This method is used to unmount the rendered React component from the associated containerNode 
+      and clean up any attached event listeners or effects. */
+
+
+
+
+/* C. render()
+  1. Validate the Root Node: React checks if the provided containerNode is a valid DOM element or node.
+     If not, it throws an error.
+
+  2. React Root Creation: When we call createRoot(container) it creates a Root of the Virtual DOM Tree that 
+     represents the entire React Components. 
+     Refer: App.jsx
+  
+   3. Initial Render: The function render() takes the React Element(React App) as an argument, then it creates
+      the Virtual DOM Tree and connects it to the React Root. Since this is the initial render, React will
+      create the Actual DOM Nodes based on the Virtual DOM Tree.
+      
+   4. Subsequent Render: When the state of a web application changes, the New VDOM is created. The new VDOM tree
+      is compared to the previous VDOM tree using a Diffing Algorithm. This algorithm identifies the differences
+      between the two trees. This process Reconciliation. Based on the differences identified, a minimal set of 
+      changes (patches) is calculated. This process is called Patching. These patches are then applied to the 
+      actual DOM. */
+      
+
+
+
+/* D. VIRTUAL DOM
+   1. A Virtual DOM (VDOM) is a lightweight copy of the actual Document Object Model (DOM) used in web development.
+      It is an IN-MEMORY representation of the Actual DOM Elements.
+      
+   2. For example, consider a list that is being rendered inside the DOM. If one of the items in the list changes,
+      the entire list gets rendered again instead of just rendering the item that was changed/updated. This is called 
+      Inefficient Updating. To address the problem of inefficient updating, the React Team introduced the concept of 
+      Virtual DOM.
+      
+   3. When the state of a web application changes that is the User Interface is updated, the New VDOM is created. The
+      new VDOM tree is compared to the previous VDOM tree using a Diffing Algorithm. This algorithm identifies the
+      differences between the two trees. This process Reconciliation. Based on the differences identified, a minimal 
+      set of changes (patches) is calculated. This process is called Patching. These patches are then applied to the
+      actual DOM.  */
+
+
+      
+
+
+
+
+  
+
+
+
