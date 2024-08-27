@@ -1,0 +1,53 @@
+//CHAPTER-1 REACT STATE
+
+/* A. HOW MANIPULATION DIFFERENT FROM JS
+  1. DOM/Data Manipulation in JavaScript:
+     - Direct DOM Access: In vanilla JavaScript, DOM manipulation typically involves directly accessing DOM elements using 
+       methods like document.getElementById or document.createElement.
+     - Manual Updates: Data manipulation involves directly modifying variables or properties in the event handler function 
+       followed by rerendering.
+     - Imperative Style: DOM manipulation is done imperatively, where we specify each step of the process explicitly.
+  
+  2. DOM/Data Manipulation in React:
+     - We don't directly manipulate the DOM/Data in React as we would in  JavaScript. Instead, we manipulate the state or
+       props of our components, and React takes care of updating the DOM efficiently.
+     - When an event occurs, the associated event handler function is invoked, which can update the component's state or
+       perform other actions.
+     - To update the state, we use state updater functions provided by React's Hooks.
+     - When the state is updated, React re-renders the component and updates the UI with the new state data. */
+
+
+
+   
+/* B. REACT STATE-INTRODUCTION
+  1. State is a JavaScript Object that represents the Data or Properties of a component that can change over time.
+  
+  2. We change state of a component using Hooks.
+  
+  3. When the state changes, react will re-render the component with the updated data.
+  
+  4. The useState Hook, this is the primary hook used for managing state in functional components. When you call useState in 
+     a functional component, it returns an OBJECT with two elements: the current state value and a function to update that 
+     state objects value. Refer-AppHooks.jsx */
+
+
+
+
+/* D. STATELESS VS STATEFULL COMPONENTS
+  1. State Management: Stateless functional components don't have their own state; they rely solely on props passed down
+     from their parent components. Stateful functional components, on the other hand, can manage their own internal state 
+     using hooks like useState and useReducer.
+     
+  2. Re-rendering: Stateless functional components will re-render whenever their parent component re-renders or when their 
+     props change. Stateful functional components will re-render whenever their state or props change.
+     
+  3. Complexity: Stateless functional components are typically simpler and easier to understand because they don't have to 
+     manage their own state. Stateful functional components can be more complex because they need to manage state updates
+     and side effects. Refer: ParentComponent.jsx and Counter.jsx
+     
+  4. Usage: Stateless components were commonly used in React class components before the introduction of functional 
+     components and hooks. In class components, stateless components were known as functional components (or sometimes
+     presentational components) because they were defined as simple JavaScript functions that accepted props as arguments 
+     and returned JSX to describe the UI. */
+
+

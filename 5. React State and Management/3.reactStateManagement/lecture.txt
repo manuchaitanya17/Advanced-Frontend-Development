@@ -1,0 +1,75 @@
+//CHAPTER-3 STATE MANAGEMENT
+
+
+/* A. STATE MANAGEMENT 
+   1. State management indeed involves handling data across multiple components.
+
+   2. What are the things we need to check while Managing State:
+    - Centralized State: Instead of having state scattered across many components, state management often involves creating 
+      a centralized store/context of data.
+    - Data Flow: It defines how data moves through your application, typically in a unidirectional flow.
+    - Avoiding Prop Drilling: Solutions like React's Context API or state management libraries help avoid passing props 
+      through multiple levels of components.
+
+   3. It's worth noting that while these concepts are powerful, not every application needs a complex state management
+      solution. For smaller applications, React's built-in State Management (useState, useReducer, useContext) might be 
+      sufficient. 
+
+   4. Here are some popular libraries and tools for state management in React applications:
+    - Context API and Hooks: Useful for managing global state without additional libraries. It’s built into React and works
+      well with hooks like useContext, useReducer, and custom hooks.
+    - State Management Libraries like Redux, MobX, Recoil, Zustand. */
+
+
+
+
+/* B. STATE MANAGEMENT THROUGH CONTEXT API
+   1. The Context API in React is a way to manage state and share data across components without having to pass props down
+      manually at every level. 
+     
+   2. It provides a means to create global variables that can be passed around and used throughout a React application, 
+      making it easier to share data between deeply nested components.
+      
+   3. Global Context Object is created using React.createContext(). It acts as a centralized Global Store for the variables
+      (state) that need to be shared across different components.
+
+   4. Now we create a ContextProvider Component using a property Context.Provider from the Context Object. This component, 
+      ContextProvider, is a wrapper to all the components that uses the Context Object's variables and functions.
+
+   5. Context.Provider takes a value prop that represents the DATA in Context Object we want to pass down to any CHILDREN
+      COMPONENT that consume this context.
+   
+   6. The useContext Hook is a React Hook that allows us to access the Context's Object Values in Functional Components. */
+
+
+
+
+/* C. STATE MANAGEMENT THROUGH REDUX
+   1. Redux is a State Management Library commonly used with React applications, although it can be used with other 
+      JavaScript Frameworks as well. 
+      
+   2. It provides a centralized "store" for managing the state of an application, making it easier to handle complex state 
+      logic and data flow, especially in large-scale applications.
+      
+   3. Redux stores the entire application's state in a single JavaScript Object called the "STORE".
+      
+   4. The STORE Object contains many arrays that indivisually represents all those variables and function which is accessed by 
+      those components that want to access it. It's the information about the application, such as lists of todos, user data, 
+      etc. This state is a single but it can have many nested properties representing different pieces of your application’s 
+      state. This is Immutable Object within the Redux store.
+
+   5. A SLICE is a piece of the Redux State, along with the logic to update that piece of state. It contains initial state, 
+      name, reducers. The createSlice method is used for creating a Redux Slice. It automatically creates "actions" Object.
+
+   6. REDUCERS are pure functions that take the CURRENT STATE and an ACTION as arguments and return a NEW STATE. They 
+      specify how the application's state changes in response to an action.
+      
+   7. REDUCERS do not mutate the state directly but return a NEW STATE OBEJCT. While this reducer appears to mutate the state 
+      directly by using state.todos.push(todo), it's important to understand that Redux Toolkit uses a library called Immer 
+      under the hood. Immer allows us to write "mutating" logic that internally handles immutability. Immer ensures that the
+      state is not actually mutated. Instead, it creates a new state object with the necessary updates.
+
+   8. ACTIONS are plain JavaScript Objects that describe an intention to change the state. Actions have a type property 
+      and can optionally have a payload property. Action Creators are functions that create and return action objects.
+      They encapsulate the creation of actions. For every reducer function there is action object created.  */
+

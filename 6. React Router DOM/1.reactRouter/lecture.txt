@@ -1,0 +1,168 @@
+//CHAPTER-11 REACT ROUTER
+
+/* A. WHAT IS A ROUTER AND IT'S FUNCTION
+  1. In React, a Router is set of components that enable navigation and routing between different parts of a single-page 
+     application (SPA). It's a sepearte library in React Ecosystem known as 'react-router-dom'.
+     
+  2. The main function of a Router is to manage the mapping between URLs (or paths) and different components that the user
+     can interact with.
+     
+  3. This allows for DYANAMIC COMPONENT UPDATE without the need for a full page refresh.
+  
+  4. Function of a Router in React:
+      - URL Mapping: Routers map specific URLs to corresponding React components.
+      - History Management: They manage browser history, allowing users to navigate forward and backward without page 
+        reloads.
+      - Nested Routing: Its allows Nested Routing so that complex application could also be navigated using complex 
+        routing using Router. */
+
+
+
+
+/* B. DIFFERENCE BETWEEN MODERN AND TRADITIONAL PAGE NAVIGATION
+  1. Component-Based Routing vs. Page-Based Navigation:
+     React Router: Routes are defined in the application structure and map directly to React components. Each route 
+     specifies which component to render based on the URL.
+
+     Traditional Navigation: Each HTML page corresponds to a specific URL and is served as a separate document from the 
+     server. This approach is less flexible for dynamic content updates without full page reloads.
+     
+  2. Single Page Application (SPA) vs. Multi-page Application (MPA):
+     React Router: Enables the creation of SPAs where navigation happens without full page reloads. Only parts of the page
+     (components) are updated based on the URL changes, providing faster user experience.
+
+     Traditional Navigation: In MPAs, navigation typically involves loading entirely new HTML pages from the server, 
+     resulting in longer load times and less interactivity. 
+     
+  3. History Management:
+     React Router: Manages browser history internally using the HTML5 History API. This enables smooth navigation using back
+     and forward buttons, and allows developers to programmatically navigate between routes.
+     
+     Traditional Navigation: Relies on the browser's native behavior for history management, which typically involves 
+     loading new pages from the server when navigating between URLs. */
+
+
+
+
+/* C. createBrowserRouter() FUNCTION
+  1. createBrowserRouter() is a function provided by react-router-dom that stores information about how our React 
+     Application handles different URLs.   
+     
+  2. It takes an Array as an argument known as Routes. Each element of this array is an Object knwown as Route.
+     Each route object maps a URL (path) with Component and specifies which React Component should be rendered when user 
+     interacts with the matched URL.
+     
+  3. The router object returned by createBrowserRouter includes the following properties and methods:
+   a) Properties:
+    - routes: An array of route objects that define the routes for your application.
+    - state: An object representing the current state of the router, including the current location and matched routes.
+    - basename: A base URL path that is prefixed to all routes.
+    - future: An optional object that can be used to enable experimental features.
+   b) Methods:
+    - navigate: A function to navigate to a different URL.
+    - createHref: A function to create a URL string from a given location descriptor.
+    - addListener: A function to add event listeners for route changes.
+    - removeListener: A function to remove event listeners.
+    - matchRoutes: A function to match the current location against the defined routes and return the matched routes.
+
+     
+  4. We can also nest route within other route in children property, creating a hierarchical structure for handling more
+     complex URL patterns. For example, us might have a main layout (Layout component) for our app and then specify 
+     different child routes (Home, About, Contactus) that should be rendered within that layout based on different URL 
+     paths (/, /about, /contactus). */
+
+
+
+
+/* D. RouterProvider COMPONENT
+  1. RouterProvider is a Component that takes a ROUETR OBEJECT as attribute and provides the Routing Context to the entire
+     application. 
+     
+   2. We first create a router instance with createBrowserRouter and then pass this router instance to RouterProvider to
+      wrap our application. When the line " <RouterProvider router={router}></RouterProvider> " what happen interanlly, 
+      refer RouterProvider.jsx
+     
+  3. Internally, RouterProvider uses React's CONTEXT API to make ROUTING INFORMATION available to all components in our 
+     application. It creates a Context that holds routing information, including the current location, navigation methods,
+     and route matching details. This context is accessible to all descendant components. This means any component in our 
+     app can access information about the current URL and other routing details without needing to pass props down manually 
+     through each component. 
+     
+  3. It coordinates actions related to routing, such as navigating to different pages or handling URL changes. When a user 
+     clicks on a link or performs an action that changes the URL, RouterProvider ensures that the correct component 
+     associated with the new URL is rendered. */
+
+
+
+/* E. OUTLETS
+  1. The Outlet component in React Router acts as a placeholder for child routes in your route configuration. When the 
+     router determines which route to render based on the current URL, it passes the MATCHED CHILD ROUTES to the Outlet
+     component.
+
+  2. When we have nested routes (routes within routes), the PARENT ROUTE COMPONENT often includes an Outlet where its child 
+     routes' components should appear. The Outlet Component uses the Children Array from Router Objject as an argument to 
+     useRoute(), it also takes location.path from useLocation() as an argument. It retruns the Child Element to be rendered.
+
+  3. The content rendered within the Outlet is dynamic and changes based on the current URL path. React Router Provider 
+     manages this rendering based on the matched route configuration. */
+
+
+
+
+/* F. INTERNAL WORKING OF ROUTER- REFER: main.jsx
+  1. We start by importing necessary modules including React, ReactDOM, your application components (App, Layout, Home, 
+     About, Contactus), styles (index.css), and routing components (RouterProvider, createBrowserRouter) from react-router-
+     dom.
+  
+  2. We use createBrowserRouter to define your routing configuration (router). This configuration specifies how different 
+     URLs (/, /about, /contactus) should map to different React components (Layout, Home, About, Contactus).
+  
+  3. ReactDOM.createRoot() is a method introduced in React 18 for rendering applications in concurrent mode. It returns a 
+     Root object that you use to render your React application. You pass it a reference to a DOM element 
+     (document.getElementById('root')) where your application will be mounted.
+  
+  4. Inside ReactDOM.createRoot().render(), you render the RouterProvider component. RouterProvider is the top-level 
+     component that manages routing for your entire React application. It wraps your application and provides routing 
+     context and functionality to all nested components.
+  
+  5. Inside RouterProvider, the Layout component is rendered. This is determined by the routing configuration 
+     (createBrowserRouter) where the root path (/) is mapped to <Layout />.
+  
+  6. Initially, when the application loads and the URL matches the root path (/), the Home component is rendered inside 
+     Layout. This is because the path: "" configuration inside Layout matches the root URL (/).
+  
+  7. It looks like this at the initial render:
+     <RouterProvider>
+       <Layout>
+         <Home />  Note: Initially rendered because path: "" matches '/'
+       </Layout>
+     </RouterProvider>
+  
+  8. When the URL changes to /about, the About component is rendered inside Layout. This is because the path: "about
+     is mapped to <About /> by the configuration provided in createBrowserRouter. */
+
+
+
+
+/* G. LINK AND NAVLINK VS ANCHOR IN REACT ROUTER
+   1. NavLink are Components that use anchor tag internally such that the application avoids the full page reload.
+      The default browser behavior of navigating directly to the URL is prevented using event.preventDefault(). The 
+      NavLink component calculates if the current URL matches the to prop value.
+       
+   2. The className function receives an isActive argument that is true if the link is active, false otherwise. The 
+      className function dynamically applies CSS classes based on whether the link is active.
+
+   3. The NavLink component uses the React Router's history object to push the new URL onto the history stack, using 
+      navigate(). This is done through the Link component which NavLink extends.  The NavLink component itself does not 
+      explicitly define event listeners because it leverages the Link component from React Router, which handles the event 
+      listening internally.
+      
+   4. The history change triggers a location update in the router context. The state in the router context updates with the 
+      new location, thus changing state in RouterProvider Componenet causing re-rendering. It causes rendering of all the 
+      wrapped components.
+
+   5. The NavLink components apply the appropriate classes and styles based on the new isActive state. Generally a function 
+      is defined as props in the NavLink Component. This component is internally defined inside the NavLink Component that 
+      takes boolean as an argument from statement "location.pathname === to". This function return String, which is passed 
+      in Link Component as Props. */
+       

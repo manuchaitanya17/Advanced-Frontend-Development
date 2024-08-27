@@ -1,0 +1,147 @@
+//CHAPTER-2 REACT HOOKS
+
+/* A. WHAT ARE HOOKS?   
+  1. Hooks were introduced in React 16.8 to provide a more straight forward and concise way to manage state and side
+     effects in functional components, without the need for class components.
+     
+  2. Before hooks, functional components were known as "stateless" components because they couldn't have their own
+     state or access lifecycle methods.
+     
+  3. There are 7 in-built Hooks in React. 
+    - useState()
+    - useEffect()
+    - useContext()
+    - useReducer()
+    - useCallback()
+    - useMemo() 
+    - useRef() */
+
+
+
+/* B. RULES OF HOOKS
+  1. We can only call Hooks at the Top Level. We cannot call hooks inside loops, conditions, or nested functions.
+  
+  2. We can only call Hooks from React Functions. We cannot call hooks from Regular JavaScript Functions or Class 
+     Components.
+     
+  3. Use Hooks in the Same Order. If we have multiple hooks in a single component, we must call them in the same order 
+     every time the component re-renders. React relies on the order of hooks to correctly manage their state between 
+     renders. */
+
+
+
+
+/* C. useState() HOOK
+  1. The React useState Hook allows us to create and manage State Object in a function component. This function return
+     the State Object.
+
+  2. The first property in the state object, is our current state termed as initialValue. The second value, is the 
+     function that is used to update our state. 
+     
+  3. The property, initialValue can be strings, numbers, booleans, arrays, objects, and any combination of these.
+
+  4. These names are variables that can be named anything we would like.
+  
+  5. The setFunction provided by the useState hook in React can receive different types of argument, depending on how 
+     we want to update the state. Here are the different types of argument that the setCounter function can receive:
+     
+     - Direct Value: In this case, we pass a new value directly to the setCounter function, and it will update the state with
+       that value. However, this approach has a potential issue related to the way React handles state updates and the 
+       concept of Batching Updates. React batches multiple similar state updates together for better performance, especially 
+       in event handlers like onClick. This means that when you call setCounter(++counter) multiple times in quick 
+       succession, React may batch these updates together and apply them all at once, instead of updating the state 
+       immediately after each call. As a result, the value of counter that you see logged in the console may not be the 
+       expected value, as React may have batched the updates, leading to a stale state issue.
+       
+     - Callback Function: We can pass a callback function to the setCounter function. This callback function will receive 
+       the previous state value as its ARGUMENT and should RETRUN the NEW STATE VALUE. In this case, React will call the
+       callback function with the previous state value, and the returned value from the callback will become the new state 
+       value. Example: setCount(prevCount => prevCount + 1); 
+       By using the functional update form, we ensure that each state update is handled correctly, regardless of React's 
+       batching behavior. React guarantees that the callback function will receive the most up-to-date state value 
+       (prevCounter) when it is called, ensuring that the state update is based on the correct previous state value.
+       
+     - Object or Array (for Updating Nested State): When we have nested state objects or arrays, we can pass a new object 
+       or array to the setCounter function, and React will merge it with the previous state value. 
+       Example: setUser({ ...car,  color: "blue"});
+       
+  6. When the state changes, react compares with old state and if their exists any change then it re-render the component
+     with the updated data. 
+         
+  7. React does not recreate the state objects (count, setCount). Instead, it reuses the previously created state objects 
+     and updates their values as necessary. */
+        
+
+
+
+
+/* D. useEffect HOOK
+  1. The useEffect Hook allows us to perform side effects in our components. This function gets triggered when any of its 
+     dependencies changes. Not at every render but for the renders that happend because of the change in the dependencies.
+     
+  2. It takes two arguments:
+     - A function that represents the side effect(password change) we want to perform.
+     - An optional array of dependencies (often called dependency array). If provided, the effect will only re-run if one of 
+       the dependencies has changed between renders.
+       
+   3. Usage Scenarios:
+      - Fetching Data: Use useEffect to fetch data from an API when the component mounts.
+      - Updating Document Title: Change the document title based on component state.
+      - Subscribing to Services: Subscribe to external services (e.g., web sockets) to receive real-time updates.
+      - Cleaning Up: Perform cleanup tasks when the component unmounts or before re-running the effect.
+      
+   4. By specifying dependencies, useEffect ensures that side effects are triggered only when necessary, optimizing 
+      performance and preventing unnecessary re-renders.
+       
+   5. useEffect function in React gets invoked just after the page renders.
+   
+   6. When no dependencies are passed then this useEffect() is invoked on every render. When an empty array ([]) is passed as
+      the second argument to useEffect, it indicates that the effect should only run once. Then it will not be invoked when
+      render happens again. */
+
+
+
+
+/* E. useCallback() HOOK
+   1. During each render, each and every function inside the component are redefined with closures, that means whenever they
+      are called they will be recreated inside the the Component's EC, thus we use useCallback(). The React useCallback()
+      Hook returns a Memoized Callback Function. 
+      
+   2. When a Memoised Function is called, React checks if there is already an entry in Memoisation Cache for the provided 
+      function and dependencies. React uses the Dependencies Array to determine when it should retrive from the cache or 
+      recreate the function. If any of these dependencies got changed the function gets recreated. This can prevent unnec-
+      essary recreation of the function on each render, optimizing performance.
+      
+   3. React maintains an internal object often referred to as a Memoization Cache where it stores these memoized functions.
+      
+   4. React uses a referential equality check (===) to determine if the dependencies have changed.
+   
+   5. When React memoizes a function using useCallback, it stores not just the function definition but also the Closure 
+      (environment) in which the function was originally created. That mean the Variables inside Memoised Functions are going
+      to have same values as they have earlier when the function was called last. */
+
+
+
+
+/* F. useMemo() HOOK 
+   1. It just same as useCallback() Hook, at the place of storing references and closures of Function useMemo’s Memoization
+      Cache stores the Returned Output of the Function. */
+
+
+
+
+/* G. useRef() HOOK
+  1. useRef is a React Hook returns a MUTABLE REF OBJECT whose .current property is initialized to the provided 
+     argument (initial value), generally its a DOM Object. 
+     
+  2. It can be used to access a DOM element directly. In React, we can add a ref attribute to an element to access it 
+     directly in the DOM using some functions.
+         
+  3. The .current property persists between re-renders and does not cause the component to re-render when it's mutated. */
+
+
+
+
+
+
+
